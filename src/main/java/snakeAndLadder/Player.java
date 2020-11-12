@@ -43,7 +43,7 @@ public class Player {
         if (rollDie < 6){
             System.out.println("Roll the die Again...");
             System.out.println("---------------------");
-            System.out.println("You need to roll a 6");
+            System.out.println("You need to roll a 6 to start the game");
         }
         else if (rollDie == 6){
             System.out.println("Your game has started!");
@@ -51,6 +51,7 @@ public class Player {
         }
         else if (rollDie > 6){
             System.out.println("~~~~~~~ Woah! that number is waaaaay too big for a die ~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~ try rolling again ~~~~~~~~~~~~~~~~~~~~~~~");
         }
 //
 //        if (rollDie >= 1 && rollDie <= 6){
@@ -64,8 +65,10 @@ public class Player {
     void rollDie(int rollNumber){
         boolean validInput = (rollNumber >= 1 && rollNumber <= 6);
 
-        if (validInput){
+        if (validInput && currentPosition <= 100){
             currentPosition += rollNumber;
+            System.out.println("You just rolled a: " + rollNumber);
+            System.out.println("----Roll again-----");
         }
         else{
             System.out.println("Enter a valid number on the die");
@@ -75,7 +78,10 @@ public class Player {
     public int getCurrentPosition() {
 
         if (currentPosition == 100){
-            System.out.println("Game Over - You have WON!");
+            System.out.println("`````````````````````````````````````````````");
+            System.out.println("[   Game Over - You have WON!     ]");
+            System.out.println("`````````````````````````````````````````````");
+
         }
         else if (currentPosition > 100){
             System.out.println();
